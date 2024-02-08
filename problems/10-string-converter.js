@@ -12,7 +12,17 @@ console.log(stringConverter("raccoon")); // => {r: 1, a: 1, c: 2, o: 2, n: 1}
 ***********************************************************************/
 
 function stringConverter(string) {
-  // Your code here 
+  let obj = {};
+  for(let i=0; i<string.length; i++){
+    let count = 0;
+    let compare = string[i];
+    if(Object.keys(obj).includes(compare)) continue;
+    for(let j=0; j<string.length; j++){
+      if(compare === string[j]) count++;
+    }
+    obj[compare] = count;
+  }
+  return obj;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
