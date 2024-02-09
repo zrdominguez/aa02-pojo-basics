@@ -30,12 +30,9 @@ console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 function countScores(people) {
   let obj = {}
   people.forEach(person => {
-    let score = 0;
-    let name = person['name'];
-    for(let i=0; i < people.length; i++){
-      if(name === people[i]['name']) score += people[i]['score'];
-    }
-    if(!Object.keys(obj).includes(name))obj[name] = score;
+    let {name, score} = person
+    if(!obj[name]) obj[name] = score;
+    else obj[name] += score
   })
   return obj;
 }
